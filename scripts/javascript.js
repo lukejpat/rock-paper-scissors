@@ -1,13 +1,25 @@
 function playGame (){
     let humanScore = 0;
     let computerScore = 0;
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+    let humanSelection;
+    let computerSelection;
 
+    let outcome = "";
     console.log(`human: ${humanSelection}`)
     console.log(`comp: ${computerSelection}`)
 
-    playRound(humanSelection, computerSelection);
+    while ((humanScore < 5) && (computerScore < 5)) {
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        outcome = playRound(humanSelection, computerSelection);
+        if (outcome.includes("win")) {
+            humanScore++;
+        } else if (outcome.includes("lose")) {
+            computerScore++;
+        }
+        console.log(`Score is: human-computer ${humanScore}-${computerScore}`)
+    }
+    
 }
 
 function getComputerChoice() {
@@ -45,31 +57,33 @@ function playRound(humanChoice, computerChoice) {
             case "rock":
                 if (computerChoice === "paper") {
                     outcomeMessage += "You lose! Paper beats rock";
-                    computerScore++;
+                    
                 } else {
                     outcomeMessage += "You win! Rcok beats scissors";
-                    humanScore++;
+                    
                 }
                 break;
             case "paper":
                 if (computerChoice === "scissors") {
                     outcomeMessage += "You lose! Scissors beats Paper";
-                    computerScore++;
+                    
                 } else {
                     outcomeMessage += "You win! Paper beats Rock";
-                    humanScore++;
+                    
                 }
                 break;
             case "scissors":
                 if (computerChoice === "rock") {
                     outcomeMessage += "You lose! Rock beats Scissors";
-                    computerScore++;
+                    
                 } else {
                     outcomeMessage += "You win! Scissors beats Paper";
-                    humanScore++;
+                    
                 }
         }
     }
     console.log(outcomeMessage)
+    return outcomeMessage;
 }
 
+playGame();
