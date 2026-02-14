@@ -28,8 +28,8 @@ function playGame (){
 }
 
 function getComputerChoice() {
-    let computerChoice = Math.random();
-    computerChoice = Math.round(computerChoice);
+    let computerChoice = Math.random() * 3;
+    computerChoice = Math.floor(computerChoice);
     switch (computerChoice) {
         case 0:
             return "rock";
