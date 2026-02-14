@@ -19,6 +19,11 @@ function playGame (){
         }
         console.log(`Score is: human-computer ${humanScore}-${computerScore}`)
     }
+    if (humanScore > 5) {
+        console.log(`You win!`)
+    } else {
+        console.log('Game over, you lose')
+    }
     
 }
 
