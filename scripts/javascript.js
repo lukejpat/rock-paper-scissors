@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let computerChoice = Math.random();
     computerChoice = Math.round(computerChoice);
@@ -21,5 +24,3 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-let humanChoice = getHumanChoice();
-console.log(humanChoice);
