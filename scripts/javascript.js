@@ -15,4 +15,11 @@ function getComputerChoice() {
     return null
 }
 
-let computerChoice = getComputerChoice();
+function getHumanChoice() {
+    let humanChoice = prompt("Please type 'rock', 'paper', or 'scissors'");
+    humanChoice = humanChoice.toLowerCase();
+    return humanChoice;
+}
+
+let humanChoice = getHumanChoice();
+console.log(humanChoice);
