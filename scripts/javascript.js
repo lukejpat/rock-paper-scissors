@@ -1,4 +1,8 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function playGame (){
+
     const buttonContainer = document.querySelector(".buttons");
     buttonContainer.addEventListener("click", playRound)
     console.log()
@@ -23,18 +27,24 @@ function getComputerChoice() {
     return null
 }
 
+function getHumanChoice(event) {
+    return event.target.textContent.toLowerCase()
+}
+
 function playRound(event) {
-    let humanScore;
-    let computerScore;
-    let humanSelection;
-    let computerSelection;
+    let humanChoice;
+    let computerChoice;
     let outcome = "";
 
     event.preventDefault();
+    
+    humanChoice = getHumanChoice(event);
+    console.log(`h:${humanChoice}`);
 
-    humanSelection = event.target.textContent.toLowerCase();
-    console.log(humanSelection);
-    /*if (humanChoice === computerChoice) {
+    computerChoice = getComputerChoice();
+    console.log(`c:${computerChoice}`);
+    
+    if (humanChoice === computerChoice) {
         outcome += `Tie! You both selected ${humanChoice}`;
         //Tie outcome check here means we only have to check for 2 states below
     } else {
@@ -67,19 +77,26 @@ function playRound(event) {
                 }
         }
     }
+    const humanScoreCard = document.querySelector(".human");
+    const computerScoreCard = document.querySelector(".comp")
     if (outcome.includes("win")) {
         humanScore++;
+        humanScoreCard.textContent = `Player Score: ${humanScore}`;
     } else if (outcome.includes("lose")) {
         computerScore++;
+        computerScoreCard.textContent = `Computer Score: ${computerScore}`;
     }
+
+
+
     console.log(`Score is: human-computer ${humanScore}-${computerScore}`)
     
     if (humanScore === 5) {
         console.log(`You win!`)
-    } else {
+    } else if (computerScore === 5) {
         console.log('Game over, you lose')
     }
-    console.log(outcome)*/
+    console.log(outcome)
     return outcome;
 }
 
