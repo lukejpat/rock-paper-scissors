@@ -91,4 +91,3 @@ function playRound(humanChoice, computerChoice) {
     return outcomeMessage;
 }
 
-playGame();
