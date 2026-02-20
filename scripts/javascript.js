@@ -5,7 +5,6 @@ function playGame (){
 
     const buttonContainer = document.querySelector(".buttons");
     buttonContainer.addEventListener("click", playRound)
-    console.log()
 
     
 }
@@ -39,10 +38,8 @@ function playRound(event) {
     event.preventDefault();
     
     humanChoice = getHumanChoice(event);
-    console.log(`h:${humanChoice}`);
 
     computerChoice = getComputerChoice();
-    console.log(`c:${computerChoice}`);
     
     if (humanChoice === computerChoice) {
         outcome += `Tie! You both selected ${humanChoice}`;
@@ -96,18 +93,14 @@ function playRound(event) {
         computerScore++;
         computerScoreCard.textContent = `Computer Score: ${computerScore}`;
     }
-
-
-
-    console.log(`Score is: human-computer ${humanScore}-${computerScore}`)
     
     if (humanScore === 5) {
-        console.log(`You win!`)
+        alert(`You win! ----> You reached 5 wins first. Reload page to play again`)
     } else if (computerScore === 5) {
-        console.log('Game over, you lose')
+        alert('Game over, you lose ----> Computer reached 5 wins first. Reload page to play again')
     }
-    console.log(outcome)
-    return outcome;
+
+    
 }
 
 playGame();
