@@ -77,6 +77,16 @@ function playRound(event) {
                 }
         }
     }
+
+    const outcomeCard = document.querySelector(".outcome");
+    outcomeCard.textContent = (`Outcome: ${outcome}`);
+
+    const humanChoiceCard = document.querySelector('.humanChoice');
+    humanChoiceCard.textContent = humanChoice;
+
+    const computerChoiceCard = document.querySelector('.computerChoice');
+    computerChoiceCard.textContent = computerChoice;
+
     const humanScoreCard = document.querySelector(".human");
     const computerScoreCard = document.querySelector(".comp")
     if (outcome.includes("win")) {
