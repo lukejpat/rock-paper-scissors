@@ -88,10 +88,10 @@ function playRound(event) {
     const computerScoreCard = document.querySelector(".comp")
     if (outcome.includes("win")) {
         humanScore++;
-        humanScoreCard.textContent = `Player Score: ${humanScore}`;
+        humanScoreCard.textContent = humanScore;
     } else if (outcome.includes("lose")) {
         computerScore++;
-        computerScoreCard.textContent = `Computer Score: ${computerScore}`;
+        computerScoreCard.textContent = computerScore;
     }
     
     if (humanScore === 5) {
